@@ -1,14 +1,16 @@
-import pygame
-screen=pygame.display.set_mode([1500,1000])
+import time, pygame
+
+screen = pygame.display.set_mode([1500, 1000])
+import controller
+
+kk = pygame.Rect(400, 290, 80, 69)
+kk.centerx = 750
+kk.centery = 500
 while True:
-    cods = pygame.event.get()
+    time.sleep(1 / 60)
+    controller.controlior()
+    kk.centerx += 1
 
-    for cosd in cods:
-        if cosd.type == pygame.QUIT:
-            exit()
-        if cosd.type == pygame.KEYDOWN and cosd.key == pygame.K_F11:
-            fullscren = pygame.display.set_mode([0, 0], pygame.FULLSCREEN)
-
-    screen.fill([34,56,12])
+    screen.fill([34, 56, 12])
+    pygame.draw.rect(screen, [56, 98, 21], kk)
     pygame.display.flip()
-
