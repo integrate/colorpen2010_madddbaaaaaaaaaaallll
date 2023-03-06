@@ -1,7 +1,7 @@
 import time, pygame
-import model,risovanie
+import risovanie
 
-import controller
+import controller,model
 
 
 while True:
