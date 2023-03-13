@@ -1,4 +1,4 @@
-import pygame,model
+import pygame, model
 
 screen = pygame.display.get_surface()
 
@@ -16,10 +16,10 @@ def controlior():
                 fullscren = pygame.display.set_mode([1500, 1000])
 
         if cosd.type == pygame.KEYDOWN and cosd.key == pygame.K_UP:
-            model.stena=[0,0,screen.get_width(),150]
+            model.stena = pygame.Rect(0, 0, screen.get_width(), 150)
         if cosd.type == pygame.KEYDOWN and cosd.key == pygame.K_DOWN:
-            model.stena=[0,screen.get_height()-150,screen.get_width(),150]
+            model.stena = pygame.Rect(0, screen.get_height() - 150, screen.get_width(), 150)
         if cosd.type == pygame.KEYDOWN and cosd.key == pygame.K_LEFT:
-            model.stena=[0,0,150,screen.get_height()]
+            model.stena = pygame.Rect(0, 0, 150, screen.get_height())
         if cosd.type == pygame.KEYDOWN and cosd.key == pygame.K_RIGHT:
-            model.stena=[screen.get_width()-150,0,150,screen.get_height()]
+            model.stena = pygame.Rect(screen.get_width() - 150, 0, 150, screen.get_height())

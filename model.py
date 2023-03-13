@@ -26,10 +26,13 @@ def model():
         upstena=0
 
 
-
-    if kk.right >= stena.right:
-        kk.right-=skorost
-        left_stena=1
+    if kk.colliderect(stena):
+        if kk.left <= stena.right:
+            kk.right+=skorost
+            left_stena=0
+        if kk.bottom >= stena.top:
+            kk.top-=skorost
+            upstena=1
     #
     # if stena.left <= 0:
     #     kk.left+=skorost
