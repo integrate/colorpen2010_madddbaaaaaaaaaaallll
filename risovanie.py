@@ -5,13 +5,11 @@ screen = pygame.display.set_mode([1500, 1000])
 pygame.draw.rect(screen, [255, 50, 21], porgran)
 import model
 
+
 def hydozhnik():
     screen.fill([34, 56, 12])
-    pygame.draw.rect(screen, [56, 98, 21], model.kk)
+    pygame.draw.ellipse(screen, [56, 98, 21], model.shar)
 
-def updater():
     pygame.draw.rect(screen, [255, 0, 0], model.stena)
 
     pygame.display.flip()
-# def pogranichnik():
-# if porgran.width ==

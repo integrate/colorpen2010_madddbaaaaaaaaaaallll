@@ -1,8 +1,7 @@
 import time, pygame
 import risovanie
 
-import controller,model
-
+import controller, model
 
 while True:
     time.sleep(1 / 60)
@@ -10,4 +9,3 @@ while True:
     model.model()
 
     risovanie.hydozhnik()
-    risovanie.updater()
