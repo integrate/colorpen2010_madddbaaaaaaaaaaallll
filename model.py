@@ -7,6 +7,7 @@ left_stena=0
 upstena=0
 skorost=7
 stena=pygame.Rect(50,50,50,50)
+storona=None
 def model():
     global left_stena,upstena
     if kk.right >=screen.get_width():
@@ -27,24 +28,18 @@ def model():
 
 
     if kk.colliderect(stena):
-        if kk.left <= stena.right:
+        if kk.left <= stena.right and storona == 'levo':
             kk.right+=skorost
             left_stena=0
-        if kk.bottom >= stena.top:
+        if kk.bottom >= stena.top and storona == 'niz':
             kk.top-=skorost
             upstena=1
-    #
-    # if stena.left <= 0:
-    #     kk.left+=skorost
-    #     left_stena=0
-    #
-    # if kk.bottom >= 1000:
-    #     kk.bottom-=skorost
-    #     upstena=1
-    #
-    # if kk.top <= 0:
-    #     kk.top+=skorost
-    #     upstena=0
+        if kk.top <=stena.bottom and storona == 'verh':
+            kk.bottom+=skorost
+            upstena=0
+        if kk.right >= stena.left and storona == 'pravo':
+            kk.right-=skorost
+            left_stena=1
 
 
     if left_stena == 0:

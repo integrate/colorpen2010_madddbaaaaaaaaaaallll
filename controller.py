@@ -17,9 +17,13 @@ def controlior():
 
         if cosd.type == pygame.KEYDOWN and cosd.key == pygame.K_UP:
             model.stena = pygame.Rect(0, 0, screen.get_width(), 150)
+            model.storona='verh'
         if cosd.type == pygame.KEYDOWN and cosd.key == pygame.K_DOWN:
             model.stena = pygame.Rect(0, screen.get_height() - 150, screen.get_width(), 150)
+            model.storona='niz'
         if cosd.type == pygame.KEYDOWN and cosd.key == pygame.K_LEFT:
             model.stena = pygame.Rect(0, 0, 150, screen.get_height())
+            model.storona='levo'
         if cosd.type == pygame.KEYDOWN and cosd.key == pygame.K_RIGHT:
             model.stena = pygame.Rect(screen.get_width() - 150, 0, 150, screen.get_height())
+            model.storona='pravo'
