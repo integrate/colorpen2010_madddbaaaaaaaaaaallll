@@ -27,7 +27,7 @@ def otbivka_ot_graniz_ecrana():
         shar.left += skorost
         left_stena = 0
 
-    if shar.bottom >= 1000:
+    if shar.bottom >= screen.get_height():
         shar.bottom -= skorost
         upstena = 1
 
@@ -63,3 +63,31 @@ def peredveshenie():
         shar.centery += skorost
     elif upstena == 1:
         shar.centery -= skorost
+
+
+def peredeshenie_steni_verh():
+    global stena,storona
+    stena = pygame.Rect(0, 0, screen.get_width(), 150)
+    storona = 'verh'
+
+def peredeshenie_steni_niz():
+    global stena, storona
+    stena = pygame.Rect(0, screen.get_height() - 150, screen.get_width(), 150)
+    storona = 'niz'
+
+def peredeshenie_steni_levo():
+    global stena, storona
+    stena = pygame.Rect(0, 0, 150, screen.get_height())
+    storona = 'levo'
+
+def peredeshenie_steni_pravo():
+    global stena, storona
+    stena = pygame.Rect(screen.get_width() - 150, 0, 150, screen.get_height())
+    storona = 'pravo'
+
+
+def full_screen():
+    if screen.get_width() == 1500:
+        pygame.display.set_mode([0, 0], pygame.FULLSCREEN)
+    else:
+        pygame.display.set_mode([1500, 1000])
