@@ -9,6 +9,7 @@ upstena = 0
 skorost = 7
 stena = pygame.Rect(50, 50, 50, 50)
 storona = None
+lives = 3
 
 
 def model():
@@ -18,22 +19,34 @@ def model():
 
 
 def otbivka_ot_graniz_ecrana():
-    global left_stena, upstena
+    global left_stena, upstena, lives
     if shar.right >= screen.get_width():
         shar.right -= skorost
         left_stena = 1
+        lives -= 1
+        if lives == -1:
+            exit()
 
     if shar.left <= 0:
         shar.left += skorost
         left_stena = 0
+        lives -= 1
+        if lives == -1:
+            exit()
 
     if shar.bottom >= screen.get_height():
         shar.bottom -= skorost
         upstena = 1
+        lives -= 1
+        if lives == -1:
+            exit()
 
     if shar.top <= 0:
         shar.top += skorost
         upstena = 0
+        lives -= 1
+        if lives == -1:
+            exit()
 
 
 def otbifka_ot_steni():
@@ -66,19 +79,22 @@ def peredveshenie():
 
 
 def peredeshenie_steni_verh():
-    global stena,storona
+    global stena, storona
     stena = pygame.Rect(0, 0, screen.get_width(), 150)
     storona = 'verh'
+
 
 def peredeshenie_steni_niz():
     global stena, storona
     stena = pygame.Rect(0, screen.get_height() - 150, screen.get_width(), 150)
     storona = 'niz'
 
+
 def peredeshenie_steni_levo():
     global stena, storona
     stena = pygame.Rect(0, 0, 150, screen.get_height())
     storona = 'levo'
+
 
 def peredeshenie_steni_pravo():
     global stena, storona
