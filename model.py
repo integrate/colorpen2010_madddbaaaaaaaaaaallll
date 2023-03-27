@@ -1,7 +1,7 @@
 import pygame
 
 screen = pygame.display.get_surface()
-shar = pygame.Rect(400, 290, 80, 69)
+shar = pygame.Rect(400, 290, 80, 80)
 shar.centerx = 750
 shar.centery = 500
 left_stena = 0
@@ -10,7 +10,17 @@ skorost = 7
 stena = pygame.Rect(50, 50, 50, 50)
 storona = None
 lives = 3
+hits=10
 
+def live():
+    global lives
+    lives -= 1
+    if lives == -1:
+        exit()
+
+def hit ():
+    global hits
+    hits-=1
 
 def model():
     otbifka_ot_steni()
@@ -23,47 +33,43 @@ def otbivka_ot_graniz_ecrana():
     if shar.right >= screen.get_width():
         shar.right -= skorost
         left_stena = 1
-        lives -= 1
-        if lives == -1:
-            exit()
+        live()
 
     if shar.left <= 0:
         shar.left += skorost
         left_stena = 0
-        lives -= 1
-        if lives == -1:
-            exit()
+        live()
 
     if shar.bottom >= screen.get_height():
         shar.bottom -= skorost
         upstena = 1
-        lives -= 1
-        if lives == -1:
-            exit()
+        live()
 
     if shar.top <= 0:
         shar.top += skorost
         upstena = 0
-        lives -= 1
-        if lives == -1:
-            exit()
+        live()
 
 
 def otbifka_ot_steni():
-    global left_stena, upstena
+    global left_stena, upstena,hits
     if shar.colliderect(stena):
         if shar.left <= stena.right and storona == 'levo':
-            shar.right += skorost
+            shar.left = stena.right
             left_stena = 0
+            hit()
         if shar.bottom >= stena.top and storona == 'niz':
-            shar.top -= skorost
+            shar.bottom = stena.top
             upstena = 1
+            hit()
         if shar.top <= stena.bottom and storona == 'verh':
-            shar.bottom += skorost
+            shar.top = stena.bottom
             upstena = 0
+            hit()
         if shar.right >= stena.left and storona == 'pravo':
-            shar.right -= skorost
+            shar.right = stena.left
             left_stena = 1
+            hit()
 
 
 def peredveshenie():
