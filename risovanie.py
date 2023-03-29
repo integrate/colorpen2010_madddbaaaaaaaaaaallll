@@ -22,4 +22,7 @@ def hydozhnik():
     d = f.render('hits ' + str(model.hits), True, [255, 255, 255])
     screen.blit(d, [50, 140])
 
+    d = f.render('levels ' + str(model.levels), True, [255, 255, 255])
+    screen.blit(d, [50, 240])
+
     pygame.display.flip()

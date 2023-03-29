@@ -10,7 +10,9 @@ skorost = 7
 stena = pygame.Rect(50, 50, 50, 50)
 storona = None
 lives = 3
-hits=10
+hits = 10
+levels = 0
+
 
 def live():
     global lives
@@ -18,9 +20,20 @@ def live():
     if lives == -1:
         exit()
 
-def hit ():
+
+def hit():
     global hits
-    hits-=1
+    hits -= 1
+    level()
+
+
+def level():
+    global hits, levels, skorost
+    if hits == 0:
+        levels += 1
+        hits = 10
+        skorost += 1
+
 
 def model():
     otbifka_ot_steni()
@@ -52,7 +65,7 @@ def otbivka_ot_graniz_ecrana():
 
 
 def otbifka_ot_steni():
-    global left_stena, upstena,hits
+    global left_stena, upstena, hits
     if shar.colliderect(stena):
         if shar.left <= stena.right and storona == 'levo':
             shar.left = stena.right
