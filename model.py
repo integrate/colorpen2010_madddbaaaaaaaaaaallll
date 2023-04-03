@@ -13,12 +13,20 @@ lives = 3
 hits = 10
 levels = 0
 
+igra_or_menu = 'menu'
+
 
 def live():
-    global lives
+    global lives, igra_or_menu, skorost, levels, hits
     lives -= 1
     if lives == -1:
-        exit()
+        hits = 10
+        levels = 0
+        shar.centerx = 750
+        shar.centery = 500
+        lives = 3
+        skorost = 7
+        igra_or_menu = 'menu'
 
 
 def hit():
