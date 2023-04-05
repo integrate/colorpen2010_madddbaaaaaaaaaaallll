@@ -1,5 +1,6 @@
 import pygame
 
+resultat=0
 screen = pygame.display.get_surface()
 shar = pygame.Rect(400, 290, 80, 80)
 shar.centerx = 750
@@ -17,9 +18,11 @@ igra_or_menu = 'menu'
 
 
 def live():
-    global lives, igra_or_menu, skorost, levels, hits
+    global lives, igra_or_menu, skorost, levels, hits,resultat
     lives -= 1
     if lives == -1:
+        if levels>resultat:
+            resultat=levels
         hits = 10
         levels = 0
         shar.centerx = 750
