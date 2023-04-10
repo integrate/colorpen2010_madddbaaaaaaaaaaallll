@@ -1,6 +1,11 @@
-import pygame
+import pygame, os
 
-resultat=0
+if os.path.exists('save.txt'):
+    pop = open('save.txt', 'r')
+    resultat = pop.read()
+    resultat = int(resultat)
+else:
+    resultat=0
 screen = pygame.display.get_surface()
 shar = pygame.Rect(400, 290, 80, 80)
 shar.centerx = 750
@@ -18,11 +23,16 @@ igra_or_menu = 'menu'
 
 
 def live():
-    global lives, igra_or_menu, skorost, levels, hits,resultat
+    global lives, igra_or_menu, skorost, levels, hits, resultat
     lives -= 1
     if lives == -1:
-        if levels>resultat:
-            resultat=levels
+
+        if levels > resultat:
+            opener = open('save.txt', 'w')
+            print(str(levels), file=opener)
+            opener.close()
+            resultat = levels
+
         hits = 10
         levels = 0
         shar.centerx = 750
