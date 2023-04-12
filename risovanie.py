@@ -3,7 +3,7 @@ import pygame
 pygame.init()
 
 porgran = pygame.Rect(50, 50, 50, 50)
-screen = pygame.display.set_mode([1500, 1000])
+screen = pygame.display.set_mode([800, 600])
 pygame.draw.rect(screen, [255, 50, 21], porgran)
 import model
 

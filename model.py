@@ -120,30 +120,31 @@ def peredveshenie():
 
 def peredeshenie_steni_verh():
     global stena, storona
-    stena = pygame.Rect(0, 0, screen.get_width(), 150)
+    stena = pygame.Rect(0, 0, screen.get_width(), 50)
     storona = 'verh'
 
 
 def peredeshenie_steni_niz():
     global stena, storona
-    stena = pygame.Rect(0, screen.get_height() - 150, screen.get_width(), 150)
+    stena = pygame.Rect(0, screen.get_height() - 50, screen.get_width(), 50)
     storona = 'niz'
 
 
 def peredeshenie_steni_levo():
     global stena, storona
-    stena = pygame.Rect(0, 0, 150, screen.get_height())
+    stena = pygame.Rect(0, 0, 50, screen.get_height())
     storona = 'levo'
 
 
 def peredeshenie_steni_pravo():
     global stena, storona
-    stena = pygame.Rect(screen.get_width() - 150, 0, 150, screen.get_height())
+    stena = pygame.Rect(screen.get_width() - 50, 0, 50, screen.get_height())
     storona = 'pravo'
 
 
 def full_screen():
-    if screen.get_width() == 1500:
-        pygame.display.set_mode([0, 0], pygame.FULLSCREEN)
+    if screen.get_width() == 800:
+        s=pygame.display.set_mode([0, 0], pygame.FULLSCREEN)
     else:
-        pygame.display.set_mode([1500, 1000])
+        s = pygame.display.set_mode([800, 600])
+    print(s.get_size())
